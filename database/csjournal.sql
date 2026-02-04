@@ -36,9 +36,9 @@ INSERT INTO content_management (page_name, title, content, updated_at) VALUES
 ('current', 'Current Updates', 'Admissions open for the academic year 2025–2026.', '2025-04-22 17:12:00'),
 ('organization', 'Organizational Structure', 'The department is headed by the HOD and supported by senior faculty members.', '2025-04-22 17:15:00');
 
--- ================================================
+-- ==========================================
 -- Table: team_members
--- ================================================
+-- ==========================================
 CREATE TABLE IF NOT EXISTS team_members (
   id INT(11) NOT NULL AUTO_INCREMENT,
   name VARCHAR(100) NOT NULL,
