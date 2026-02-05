@@ -41,6 +41,7 @@ include '../config/db.php';
         <div class="card">
             <h3>Current Updates</h3>
             <a href="current/add.php">➕ Add Content</a>
+            <a href="current/edit.php">🛠 Manage</a>
         </div>
 
         <!-- ORGANIZATION PAGE -->
