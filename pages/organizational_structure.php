@@ -1,136 +1,116 @@
+<?php
+include '../config/db.php';   // DB connection
+?>
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <title>Journal of Computer Science</title>
+    <title>Organizational Structure | Journal of Computer Science</title>
     <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        .editorial-section {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 30px;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        .editorial-section h2 {
+            margin-top: 35px;
+            color: #0b3c5d;
+            border-bottom: 2px solid #e3e3e3;
+            padding-bottom: 8px;
+        }
+
+        .editorial-section ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 15px;
+        }
+
+        .editorial-section ul li {
+            padding: 8px 0;
+            font-size: 16px;
+            border-bottom: 1px dashed #ddd;
+        }
+
+        .editorial-section ul li strong {
+            color: #333;
+        }
+
+        .category-label {
+            font-size: 13px;
+            color: #fff;
+            background: #007bff;
+            padding: 3px 8px;
+            border-radius: 4px;
+            margin-left: 8px;
+        }
+
+        .empty-text {
+            font-style: italic;
+            color: #777;
+            margin-top: 10px;
+        }
+    </style>
 </head>
+
 <body>
-  <?php include '../includes/header.php'; ?>
-  
-  <div class="editorial-section">
 
-    <h2>1. Patrons</h2>
-    <ul>
-        <li><strong>Chief Patron:</strong> Revered Bishop Ayya</li>
-        <li><strong>Patron:</strong> Dr. Princy Merlin, Principal, BHC</li>
-    </ul>
+<?php include '../includes/header.php'; ?>
 
-    <h3>Advisory Patrons</h3>
-    <ol>
-        <li>Dr. Violet Dhayabaran, Dean, Academics – Sciences</li>
-        <li>Dr. Vijayalakshmi, Dean, Research and Development</li>
-        <li>Dr. Angeline Vedha, Dean, IQAC</li>
-    </ol>
+<div class="editorial-section">
 
-    <h2>2. Chief Editor</h2>
-    <ul>
-        <li><strong>Editor-in-Chief:</strong> Dr. J.G.R. Sathiaseelan</li>
-        <li><strong>Associate Chief Editor:</strong> Dr. K. Rajkumar</li>
-    </ul>
+    <h1>Organizational Structure</h1>
 
-    <h2>3. Managerial Editorial Team</h2>
-    <ul>
-        <li>Dr. G. Sobers Smiles David</li>
-        <li>Dr. R. Thamarai Selvi</li>
-        <li>Dr. D. Kirubai</li>
-        <li>Dr. S. Sophia</li>
-    </ul>
+    <?php
+    $query = "SELECT * FROM organizational_members ORDER BY section, id";
+    $result = mysqli_query($conn, $query);
 
-    <h2>4. Associate Editors</h2>
-    <ul>
-        <li>Dr. John Raybin Jose</li>
-        <li>Dr. R. Jemima Priyadarshini</li>
-        <li>Dr. J. James Manoharan</li>
-        <li>Dr. Isac Gnanaraj</li>
-    </ul>
+    if (mysqli_num_rows($result) > 0) {
 
-    <h2>5. Editorial Board Members</h2>
-    <ul>
-        <li>Dr. P. Thangaraju</li>
-        <li>Dr. P.S. Eliahim Jeevaraj</li>
-        <li>Dr. M. Kasthuri</li>
-        <li>Dr. L. Jeyasimman</li>
-        <li>Dr. M.S. Mythili</li>
-        <li>Dr. M.P. Anuradha</li>
-        <li>Dr. M. Subalakshmi</li>
-        <li>Dr. Ramah Sivakumar</li>
-        <li>Dr. B. Karthikeyan</li>
-    </ul>
+        $currentSection = '';
 
-    <h2>6. Panel of Reviewers (Internal)</h2>
-    <ul>
-        <li>Dr. B. Sathees Kumar</li>
-        <li>Dr. M. Jayakkumar</li>
-        <li>Dr. K. Mohd. Amanullah</li>
-        <li>Dr. H.B. Vincent Raj</li>
-        <li>Dr. M. Lovelin Pon Felciah</li>
-        <li>Dr. S. Annal Ezhil Selvi</li>
-        <li>Dr. B. Arputhamary</li>
-        <li>Dr. J. Sai Geetha</li>
-        <li>Dr. B. Gayathri</li>
-        <li>Prof. S. Thiyables Stephen Smith</li>
-        <li>Prof. A. Rizwana</li>
-        <li>Prof. G. Vanitha</li>
-        <li>Dr. S. Maheswari</li>
-        <li>Dr. V. Geetha Dhanalakshmi</li>
-        <li>Dr. R. Rajkumar</li>
-        <li>Dr. K. Mahesh Babu</li>
-        <li>Dr. A.K. Shafreen Banu</li>
-        <li>Dr. R. Cynthia Monica Priya</li>
-        <li>Dr. S. Subha</li>
-        <li>Dr. Lino Fathima Chinna Rani</li>
-        <li>Dr. T. Arulmozhi Devan</li>
-        <li>Dr. T. Muralidharan</li>
-        <li>Dr. N. Vijayaraj</li>
-    </ul>
+        while ($row = mysqli_fetch_assoc($result)) {
 
-    <h2>7. Panel of Reviewers (External)</h2>
-    <p><em>To Be Added</em></p>
+            if ($currentSection !== $row['section']) {
+                if ($currentSection !== '') {
+                    echo "</ul>";
+                }
 
-    <h2>8. International Advisory Board</h2>
-    <p><em>To Be Added</em></p>
+                echo "<h2>{$row['section']}</h2>";
+                echo "<ul>";
 
-    <h2>9. Technical Team</h2>
-    <ul>
-        <li>Dr. Pearly Charles</li>
-        <li>Dr. A. Florence Deepa</li>
-        <li>Prof. R. Vadivel</li>
-        <li>Dr. S. Regha</li>
-        <li>Dr. P. Anitha Vairamani</li>
-        <li>Prof. Rachel Betty Sugumari</li>
-        <li>Dr. G. Paul Davidson</li>
-        <li>Prof. Sharon Dominic</li>
-        <li>Dr. P. Iris Punitha</li>
-        <li>Dr. Adlin Suji</li>
-        <li>Dr. R. Preethi</li>
-        <li>Dr. M. Kavitha</li>
-        <li>Dr. S. Chitra</li>
-    </ul>
+                $currentSection = $row['section'];
+            }
 
-    <h2>10. Publication & Ethics Committee</h2>
-    <ul>
-        <li>Dr. J. Gnana Prasad, Librarian, BHC</li>
-        <li>Dr. Josephine Prabha, Associate Dean, Academics – Sciences</li>
-    </ul>
+            echo "<li>";
 
-    <h2>11. Communication & Promotion Team</h2>
-    <ul>
-        <li>Dr. L. Leelavathy</li>
-        <li>Dr. B. Ramesh</li>
-    </ul>
+            if (!empty($row['role'])) {
+                echo "<strong>{$row['role']}:</strong> ";
+            }
 
-    <h2>12. Publication Schedule</h2>
-    <ul>
-        <li>IJACSI is a quarterly journal publishing four issues each year.</li>
-        <li>Issues are released in March, June, September, and December.</li>
-        <li>The model ensures rigorous peer review and timely dissemination.</li>
-        <li>Supports regular academic engagement and author visibility.</li>
-        <li>Maintains strong editorial standards and relevance.</li>
-    </ul>
+            echo htmlspecialchars($row['name']);
+
+            if (!empty($row['category']) && $row['category'] !== 'Internal') {
+                echo "<span class='category-label'>{$row['category']}</span>";
+            }
+
+            echo "</li>";
+        }
+
+        echo "</ul>";
+
+    } else {
+        echo "<p class='empty-text'>Organizational details will be updated soon.</p>";
+    }
+    ?>
 
 </div>
+
 <?php include '../includes/footer.php'; ?>
 
 </body>

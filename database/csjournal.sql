@@ -87,5 +87,13 @@ CREATE TABLE IF NOT EXISTS current_updates (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+CREATE TABLE organizational_members (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    section VARCHAR(100) NOT NULL,
+    role VARCHAR(100),
+    name VARCHAR(255) NOT NULL,
+    category VARCHAR(50) DEFAULT 'Internal',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
 
 COMMIT;
