@@ -1,34 +1,51 @@
 <?php
-include '../../config/db.php';
 include '../includes/auth.php';
+include '../../config/db.php';
 
-if (isset($_POST['submit'])) {
-    $title = $_POST['title'];
-    $content = $_POST['content'];
+if ($_POST) {
+    $title = mysqli_real_escape_string($conn, $_POST['title']);
+    $content = mysqli_real_escape_string($conn, $_POST['content']);
 
-    $query = "INSERT INTO content_management (page_name, title, content)
-              VALUES ('about', '$title', '$content')";
-    mysqli_query($conn, $query);
+    mysqli_query(
+        $conn,
+        "INSERT INTO about_sections (title, content)
+         VALUES ('$title', '$content')"
+    );
 
-    echo "<script>alert('Content Added');</script>";
+    $success = "About section added successfully!";
 }
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Add About Content</title>
-     <link rel="stylesheet" href="../assets/css/admin.css">
+    <meta charset="UTF-8">
+    <title>Add About Section</title>
+    <link rel="stylesheet" href="../assets/css/admin.css">
 </head>
 <body>
 
-<h2>Add About Content</h2>
-<a href="../index.php">⬅ Back to Dashboard</a>
-<form method="post">
-    <input type="text" name="title" placeholder="Title" rows="6" cols="180" required><br><br>
-    <textarea name="content" placeholder="Content" rows="6" cols="180" required></textarea><br><br>
-    <button type="submit" name="submit">Save</button>
-</form>
+<div class="page-container">
+
+    <h2>Add About Section</h2>
+
+    <?php if (isset($success)) { ?>
+        <p class="success"><?= $success ?></p>
+    <?php } ?>
+
+    <form method="post">
+        <label>Title</label>
+        <input type="text" name="title" required>
+
+        <label>Content</label>
+        <textarea name="content" rows="6" required></textarea>
+
+        <button type="submit">Save</button>
+    </form>
+
+    <a href="edit.php" class="back-link">⬅ Back to About Management</a>
+
+</div>
 
 </body>
 </html>

@@ -47,7 +47,7 @@ $articles = mysqli_query($conn, "SELECT * FROM articles ORDER BY created_at DESC
             <aside class="details">
                 <!---<img src="image/jcs.webp" alt="Journal Image">-->
                 <img src="image/cs.png" alt="Journal Image">
-                <p><strong>Frequency:</strong>Monthly</p>
+                <p><strong>Frequency:</strong>Half-yearly</p>
                 <!--<p><strong>ISSN:</strong> <?php echo $issnPrint; ?> (Print)</p>
             <p><strong>ISSN:</strong> <?php echo $issnOnline; ?> (Online)</p> -->
             </aside>

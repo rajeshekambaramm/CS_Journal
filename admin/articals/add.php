@@ -1,34 +1,39 @@
 <?php
-include '../../config/db.php';
 include '../includes/auth.php';
+include '../../config/db.php';
 
 $success = '';
 $error = '';
 
 if (isset($_POST['submit'])) {
-    $article_type = $_POST['article_type'];
-    $access_type  = $_POST['access_type'];
-    $title        = mysqli_real_escape_string($conn, $_POST['title']);
-    $authors      = mysqli_real_escape_string($conn, $_POST['authors']);
-    $journal_info = mysqli_real_escape_string($conn, $_POST['journal_info']);
+    $article_type   = $_POST['article_type'];
+    $access_type    = $_POST['access_type'];
+    $title          = mysqli_real_escape_string($conn, $_POST['title']);
+    $authors        = mysqli_real_escape_string($conn, $_POST['authors']);
+    $journal_info   = mysqli_real_escape_string($conn, $_POST['journal_info']);
     $published_date = $_POST['published_date'];
 
     // PDF upload
-    if (isset($_FILES['pdf']) && $_FILES['pdf']['name'] != "") {
+    if (!empty($_FILES['pdf']['name'])) {
         $pdf_original_name = $_FILES['pdf']['name'];
         $pdf_file = time() . "_" . $pdf_original_name;
         $target = "../../uploads/pdfs/" . $pdf_file;
 
         $ext = strtolower(pathinfo($pdf_original_name, PATHINFO_EXTENSION));
-        if ($ext != "pdf") {
+
+        if ($ext !== "pdf") {
             $error = "Only PDF files are allowed!";
         } else {
             if (move_uploaded_file($_FILES['pdf']['tmp_name'], $target)) {
-                $query = "INSERT INTO articles 
+
+                mysqli_query(
+                    $conn,
+                    "INSERT INTO articles
                     (article_type, access_type, title, authors, journal_info, published_date, pdf_file, pdf_original_name)
-                    VALUES 
-                    ('$article_type', '$access_type', '$title', '$authors', '$journal_info', '$published_date', '$pdf_file', '$pdf_original_name')";
-                mysqli_query($conn, $query);
+                    VALUES
+                    ('$article_type', '$access_type', '$title', '$authors', '$journal_info', '$published_date', '$pdf_file', '$pdf_original_name')"
+                );
+
                 $success = "Article added successfully!";
             } else {
                 $error = "Failed to upload PDF.";
@@ -41,43 +46,61 @@ if (isset($_POST['submit'])) {
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>Add Article</title>
+    <link rel="stylesheet" href="../assets/css/admin.css">
 </head>
 <body>
 
-<h2>Add New Article</h2>
+<div class="page-container">
 
-<?php if($success) echo "<p style='color:green;'>$success</p>"; ?>
-<?php if($error) echo "<p style='color:red;'>$error</p>"; ?>
+    <h2>Add New Article</h2>
 
-<form method="post" enctype="multipart/form-data">
-    <label>Article Type</label><br>
-    <select name="article_type" required>
-        <option value="Research Article">Research Article</option>
-        <option value="Review Article">Review Article</option>
-    </select><br><br>
+    <?php if ($success) { ?>
+        <p class="success"><?= $success ?></p>
+    <?php } ?>
 
-    <label>Access Type</label><br>
-    <select name="access_type" required>
-        <option value="Open Access">Open Access</option>
-        <option value="Restricted">Restricted</option>
-    </select><br><br>
+    <?php if ($error) { ?>
+        <p class="error"><?= $error ?></p>
+    <?php } ?>
 
-    <input type="text" name="title" placeholder="Title" required><br><br>
-    <input type="text" name="authors" placeholder="Authors" required><br><br>
-    <input type="text" name="journal_info" placeholder="Journal Info" required><br><br>
-    <input type="date" name="published_date" required><br><br>
+    <form method="post" enctype="multipart/form-data">
 
-    <label>Upload PDF</label><br>
-    <input type="file" name="pdf" accept="application/pdf" required><br><br>
+        <label>Article Type</label>
+        <select name="article_type" required>
+            <option value="Research Article">Research Article</option>
+            <option value="Review Article">Review Article</option>
+        </select>
 
-    <button type="submit" name="submit">Add Article</button>
-</form>
+        <label>Access Type</label>
+        <select name="access_type" required>
+            <option value="Open Access">Open Access</option>
+            <option value="Restricted">Restricted</option>
+        </select>
 
-<br>
-<a href="../index.php">⬅ Back to Dashboard</a>
+        <label>Title</label>
+        <input type="text" name="title" required>
+
+        <label>Authors</label>
+        <input type="text" name="authors" required>
+
+        <label>Journal Info</label>
+        <input type="text" name="journal_info" required>
+
+        <label>Published Date</label>
+        <input type="date" name="published_date" required>
+
+        <label>Upload PDF</label>
+        <input type="file" name="pdf" accept="application/pdf" required>
+
+        <button type="submit" name="submit">Save Article</button>
+    </form>
+
+    <a href="../index.php" class="back-link">⬅ Back to Dashboard</a>
+
+</div>
 
 </body>
 </html>

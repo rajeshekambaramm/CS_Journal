@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <title>Journal of Computer Science</title>
@@ -13,18 +12,24 @@
 include '../config/db.php';
 include '../includes/header.php';
 
-$query = "SELECT title, content FROM content_management 
-          WHERE page_name='about' 
+/* Fetch About sections from separate table */
+$query = "SELECT title, content 
+          FROM about_sections 
           ORDER BY id ASC";
+
 $result = mysqli_query($conn, $query);
 ?>
 
 <main class="content">
     <h1>Journal of Computer Science</h1>
 
-    <?php while ($row = mysqli_fetch_assoc($result)) { ?>
-        <h3><?php echo htmlspecialchars($row['title']); ?></h3>
-        <p><?php echo nl2br(htmlspecialchars($row['content'])); ?></p>
+    <?php if (mysqli_num_rows($result) > 0) { ?>
+        <?php while ($row = mysqli_fetch_assoc($result)) { ?>
+            <h3><?= htmlspecialchars($row['title']); ?></h3>
+            <p><?= nl2br(htmlspecialchars($row['content'])); ?></p>
+        <?php } ?>
+    <?php } else { ?>
+        <p>No content available.</p>
     <?php } ?>
 </main>
 

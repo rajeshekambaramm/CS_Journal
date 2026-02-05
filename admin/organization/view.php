@@ -9,7 +9,7 @@ $result = mysqli_query($conn, "SELECT * FROM organizational_members ORDER BY sec
 <html>
 <head>
     <title>Manage Organization</title>
-    <link rel="stylesheet" href="../assets/admin.css">
+    <link rel="stylesheet" href="../assets/css/admin.css">
 </head>
 <body>
 

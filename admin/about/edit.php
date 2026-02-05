@@ -1,57 +1,70 @@
-<?php
-include '../../config/db.php';
+<?php 
 include '../includes/auth.php';
+include '../../config/db.php';
 
-// If update form submitted
-if (isset($_POST['update'])) {
-    $id = $_POST['id'];
-    $title = $_POST['title'];
-    $content = $_POST['content'];
-
-    $update = "UPDATE content_management 
-               SET title='$title', content='$content' 
-               WHERE id='$id'";
-    mysqli_query($conn, $update);
-
-    echo "<script>alert('Section Updated');</script>";
-}
-
-// Fetch all About sections
-$result = mysqli_query($conn, "SELECT * FROM content_management WHERE page_name='about'");
+$result = mysqli_query(
+    $conn,
+    "SELECT * FROM about_sections 
+     ORDER BY updated_at DESC"
+);
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Edit About Sections</title>
+    <meta charset="UTF-8">
+    <title>Manage About Sections</title>
+    <link rel="stylesheet" href="../assets/css/admin.css">
 </head>
 <body>
 
-<h2>Edit About Page Sections</h2>
-<a href="../index.php">⬅ Back to Dashboard</a>
+<div class="page-container">
 
-<?php while ($row = mysqli_fetch_assoc($result)) { ?>
-    <form method="post" style="border:1px solid #ccc; padding:15px; margin-bottom:15px;">
-        <input type="hidden" name="id" value="<?= $row['id'] ?>">
+    <h2>About Page Management</h2>
 
-        <label>Section Title</label><br>
-        <input 
-            type="text" 
-            name="title" 
-            value="<?= htmlspecialchars($row['title']) ?>" 
-            required
-        ><br><br>
+    <table class="admin-table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Title</th>
+                <th>Content</th>
+                <th>Last Updated</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
 
-        <label>Content</label><br>
-        <textarea 
-            name="content" 
-            rows="5" 
-            cols="60" 
-            required
-        ><?= htmlspecialchars($row['content']) ?></textarea><br><br>
+        <?php
+        if ($result && mysqli_num_rows($result) > 0) {
+            $i = 1;
+            while ($row = mysqli_fetch_assoc($result)) { ?>
+                <tr>
+                    <td><?= $i++ ?></td>
+                    <td><?= htmlspecialchars($row['title']) ?></td>
+                    <td><?= nl2br(htmlspecialchars(substr($row['content'], 0, 120))) ?>...</td>
+                    <td><?= date('d M Y', strtotime($row['updated_at'])) ?></td>
+                    <td>
+                        <a href="update.php?id=<?= $row['id'] ?>" class="edit">Edit</a> |
+                        <a href="delete.php?id=<?= $row['id'] ?>"
+                           class="delete"
+                           onclick="return confirm('Delete this section?')">
+                           Delete
+                        </a>
+                    </td>
+                </tr>
+        <?php }
+        } else { ?>
+            <tr>
+                <td colspan="5" style="text-align:center;">No About sections found</td>
+            </tr>
+        <?php } ?>
 
-        <button type="submit" name="update">Update Section</button>
-    </form>
-<?php } ?>
+        </tbody>
+    </table>
+
+    <a href="../index.php" class="back-link">⬅ Back to Dashboard</a>
+
+</div>
+
 </body>
 </html>

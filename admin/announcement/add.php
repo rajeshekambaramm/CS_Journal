@@ -8,7 +8,8 @@ if ($_POST) {
 
     mysqli_query(
         $conn,
-        "INSERT INTO announcements (title, description) VALUES ('$title','$description')"
+        "INSERT INTO announcements (title, description)
+         VALUES ('$title', '$description')"
     );
 
     $success = "Announcement added successfully!";
@@ -16,24 +17,47 @@ if ($_POST) {
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>Add Announcement</title>
+    <link rel="stylesheet" href="../assets/css/admin.css">
 </head>
 <body>
 
-<h2>Add Announcement</h2>
+<div class="page-container">
 
-<?php if (isset($success)) echo "<p>$success</p>"; ?>
+    <h2>Add Announcement</h2>
 
-<form method="post">
-    <input type="text" name="title" placeholder="Announcement Title" required><br><br>
-    <textarea name="description" placeholder="Announcement Description" required></textarea><br><br>
-    <button type="submit">Save</button>
-</form>
+    <?php if (isset($success)) { ?>
+        <p class="success"><?= $success ?></p>
+    <?php } ?>
 
-<br>
-<a href="../index.php">⬅ Back to Dashboard</a>
+    <form method="post">
+
+        <label>Announcement Title</label>
+        <input
+            type="text"
+            name="title"
+            placeholder="Enter announcement title"
+            required
+        >
+
+        <label>Announcement Description</label>
+        <textarea
+            name="description"
+            rows="6"
+            placeholder="Enter announcement description"
+            required
+        ></textarea>
+
+        <button type="submit">Save Announcement</button>
+
+    </form>
+
+    <a href="../index.php" class="back-link">⬅ Back to Dashboard</a>
+
+</div>
 
 </body>
 </html>

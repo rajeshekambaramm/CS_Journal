@@ -47,7 +47,8 @@ include '../config/db.php';
         <!-- ORGANIZATION PAGE -->
         <div class="card">
             <h3>Organization Structure</h3>
-            <a href="organization/add.php">➕ Add Content</a>
+            <a href="organization/add.php">➕ Add organization</a>
+             <a href="organization/view.php">🛠 Edit  organization</a>
         </div>
 
         <!-- ANNOUNCEMENTS -->

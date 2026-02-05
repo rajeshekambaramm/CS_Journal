@@ -20,7 +20,7 @@ if (isset($_POST['submit'])) {
 <html>
 <head>
     <title>Add Organization Member</title>
-    <link rel="stylesheet" href="../assets/admin.css">
+    <link rel="stylesheet" href="../assets/css/admin.css">
 </head>
 <body>
 
