@@ -69,6 +69,14 @@ include '../config/db.php';
                 <a href="announcement/edit.php">🛠 Manage</a>
             </div>
         </div>
+<!-- user login -->
+        <div class="card">
+            <h3>User Login</h3>
+            <div class="card-buttons">
+                <a href="login/add.php">➕ Add New User</a>
+                <a href="login/edit.php">🛠 Manage User</a>
+            </div>
+        </div>
     </div>
 </div>
 

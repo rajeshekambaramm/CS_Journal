@@ -121,6 +121,8 @@ body {
 .card:nth-child(3) a { background: #8e44ad; }
 .card:nth-child(4) a { background: #d35400; }
 .card:nth-child(5) a { background: #c0392b; }
+.card:nth-child(6) a { background: #202b96; }
+
 
 /* =======================
    PAGE CONTAINER

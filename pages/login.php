@@ -156,7 +156,7 @@ exit();
             <div class="resource-links">
                 <a href="../index.php">Home Page</a>
                 <a href="create_account.php">Create an Account</a>
-                <a href="../guidelines.php">Guidelines</a>
+                <a href="guidelines.php">Guidelines</a>
             </div>
         </div>
 
