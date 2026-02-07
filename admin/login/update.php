@@ -59,6 +59,7 @@ if (isset($_POST['update'])) {
 <div class="page-container">
 
 <h2>Edit User</h2>
+<a href="edit.php" class="back-link">⬅ Back</a>
 
 <form method="post">
     <label>Full Name</label>
@@ -76,7 +77,7 @@ if (isset($_POST['update'])) {
     <button type="submit" name="update">Update</button>
 </form>
 
-<a href="edit.php" class="back-link">⬅ Back</a>
+
 
 </div>
 </body>

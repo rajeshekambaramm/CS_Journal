@@ -19,35 +19,39 @@ if ($_POST) {
 
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Add User</title>
     <link rel="stylesheet" href="../assets/css/admin.css">
 </head>
+
 <body>
 
-<div class="page-container">
+    <div class="page-container">
 
-<h2>Add User</h2>
+        <h2>Add User</h2>
+        <a href="edit.php" class="back-link">⬅ Back to User Management</a>
 
-<?php if (isset($success)) { ?>
-    <p class="success"><?= $success ?></p>
-<?php } ?>
+        <?php if (isset($success)) { ?>
+            <p class="success"><?= $success ?></p>
+        <?php } ?>
 
-<form method="post">
-    <label>Full Name</label>
-    <input type="text" name="name" required>
+        <form method="post">
+            <label>Full Name</label>
+            <input type="text" name="name" required>
 
-    <label>Email</label>
-    <input type="email" name="email" required>
+            <label>Email</label>
+            <input type="email" name="email" required>
 
-    <label>Password</label>
-    <input type="password" name="password" required>
+            <label>Password</label>
+            <input type="password" name="password" required>
 
-    <button type="submit">Save</button>
-</form>
+            <button type="submit">Save</button>
+        </form>
 
-<a href="edit.php" class="back-link">⬅ Back to User Management</a>
 
-</div>
+
+    </div>
 </body>
+
 </html>

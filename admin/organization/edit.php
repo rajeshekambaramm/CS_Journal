@@ -19,8 +19,8 @@ $result = mysqli_query($conn, "SELECT * FROM organizational_members ORDER BY sec
 
     <h2>Organizational Structure</h2>
 
-    <a href="add.php" class="back-link" style="margin-bottom:15px; display:inline-block;">➕ Add Member</a>
     <a href="../index.php" class="back-link" style="margin-left:10px;">⬅ Back to Dashboard</a>
+    <a href="add.php" class="back">➕ Add Member</a>
 
     <table class="admin-table">
         <thead>

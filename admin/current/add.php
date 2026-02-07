@@ -25,8 +25,8 @@ if (isset($_POST['submit'])) {
 <body>
 
 <div class="page-container">
-    <h2>Add Current Update</h2>
     <a class="back-link" href="../index.php">⬅ Back to Dashboard</a>
+    <h2>Add Current Update</h2>
 
     <form method="post">
         <input type="text" name="title" placeholder="Update Title" required>

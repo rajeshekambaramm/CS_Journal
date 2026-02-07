@@ -31,31 +31,32 @@ if (isset($_POST['update'])) {
 
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Edit Announcement</title>
     <link rel="stylesheet" href="../assets/css/admin.css">
 
 </head>
+
 <body>
 
-<div class="page-container">
+    <div class="page-container">
 
-    <h2>Edit Announcement</h2>
+        <a href="edit.php" class="back-link">⬅ Back</a>
+        <h2>Edit Announcement</h2>
 
-    <form method="post">
-        <label>Title</label>
-        <input type="text" name="title" value="<?= htmlspecialchars($data['title']) ?>" required>
+        <form method="post">
+            <label>Title</label>
+            <input type="text" name="title" value="<?= htmlspecialchars($data['title']) ?>" required>
 
-        <label>Description</label>
-        <textarea name="description" required><?= htmlspecialchars($data['description']) ?></textarea>
+            <label>Description</label>
+            <textarea name="description" required><?= htmlspecialchars($data['description']) ?></textarea>
 
-        <button type="submit" name="update">Update</button>
-    </form>
+            <button type="submit" name="update">Update</button>
+        </form>
 
-    <br>
-    <a href="edit.php" class="back-link">⬅ Back</a>
-
-</div>
-
+        <br>
+    </div>
 </body>
+
 </html>

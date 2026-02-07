@@ -42,6 +42,7 @@ if (isset($_POST['submit'])) {
 <body>
 
 <div class="page-container">
+    <a href="edit.php" class="back-link">⬅ Back to Current Updates</a>
     <h2>Edit Current Update</h2>
 
     <form method="post">

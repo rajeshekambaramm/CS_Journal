@@ -19,6 +19,7 @@ $result = mysqli_query(
 <div class="page-container">
 
 <h2>User Management</h2>
+<a href="../index.php" class="back-link">⬅ Back to Dashboard</a>
 
 <table class="admin-table">
     <thead>
@@ -58,7 +59,7 @@ if ($result && mysqli_num_rows($result) > 0) {
     </tbody>
 </table>
 
-<a href="../index.php" class="back-link">⬅ Back to Dashboard</a>
+
 
 </div>
 </body>

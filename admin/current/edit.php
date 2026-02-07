@@ -17,6 +17,7 @@ $result = mysqli_query($conn, "SELECT * FROM current_updates ORDER BY created_at
 
 <div class="page-container">
 
+    <a href="../index.php" class="back-link">⬅ Back to Dashboard</a>
     <h2>Current Updates Management</h2>
 
     <table class="admin-table">

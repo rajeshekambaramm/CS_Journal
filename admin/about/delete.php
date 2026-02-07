@@ -2,15 +2,16 @@
 include '../includes/auth.php';
 include '../../config/db.php';
 
-$id = $_GET['id'] ?? 0;
+/* Validate ID */
+$id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 
-if ($id) {
+if ($id > 0) {
     mysqli_query(
         $conn,
-        "DELETE FROM content_management 
-         WHERE id=$id AND page_name='about'"
+        "DELETE FROM about_sections WHERE id = $id"
     );
 }
 
+/* Redirect back */
 header("Location: edit.php");
 exit;

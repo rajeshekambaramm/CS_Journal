@@ -6,11 +6,11 @@ $success = '';
 $error = '';
 
 if (isset($_POST['submit'])) {
-    $article_type   = $_POST['article_type'];
-    $access_type    = $_POST['access_type'];
-    $title          = mysqli_real_escape_string($conn, $_POST['title']);
-    $authors        = mysqli_real_escape_string($conn, $_POST['authors']);
-    $journal_info   = mysqli_real_escape_string($conn, $_POST['journal_info']);
+    $article_type = $_POST['article_type'];
+    $access_type = $_POST['access_type'];
+    $title = mysqli_real_escape_string($conn, $_POST['title']);
+    $authors = mysqli_real_escape_string($conn, $_POST['authors']);
+    $journal_info = mysqli_real_escape_string($conn, $_POST['journal_info']);
     $published_date = $_POST['published_date'];
 
     // PDF upload
@@ -55,60 +55,64 @@ if (isset($_POST['submit'])) {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Add Article</title>
     <link rel="stylesheet" href="../assets/css/admin.css">
 </head>
+
 <body>
 
-<div class="page-container">
+    <div class="page-container">
 
-    <h2>Add New Article</h2>
+        <a href="../index.php" class="back-link">⬅ Back to Dashboard</a>
+        <h2>Add New Article</h2>
 
-    <?php if ($success) { ?>
-        <p class="success"><?= $success ?></p>
-    <?php } ?>
+        <?php if ($success) { ?>
+            <p class="success"><?= $success ?></p>
+        <?php } ?>
 
-    <?php if ($error) { ?>
-        <p class="error"><?= $error ?></p>
-    <?php } ?>
+        <?php if ($error) { ?>
+            <p class="error"><?= $error ?></p>
+        <?php } ?>
 
-    <form method="post" enctype="multipart/form-data">
+        <form method="post" enctype="multipart/form-data">
 
-        <label>Article Type</label>
-        <select name="article_type" required>
-            <option value="Research Article">Research Article</option>
-            <option value="Review Article">Review Article</option>
-        </select>
+            <label>Article Type</label>
+            <select name="article_type" required>
+                <option value="Research Article">Research Article</option>
+                <option value="Review Article">Review Article</option>
+            </select>
 
-        <label>Access Type</label>
-        <select name="access_type" required>
-            <option value="Open Access">Open Access</option>
-            <option value="Restricted">Restricted</option>
-        </select>
+            <label>Access Type</label>
+            <select name="access_type" required>
+                <option value="Open Access">Open Access</option>
+                <option value="Restricted">Restricted</option>
+            </select>
 
-        <label>Title</label>
-        <input type="text" name="title" required>
+            <label>Title</label>
+            <input type="text" name="title" required>
 
-        <label>Authors</label>
-        <input type="text" name="authors" required>
+            <label>Authors</label>
+            <input type="text" name="authors" required>
 
-        <label>Journal Info</label>
-        <input type="text" name="journal_info" required>
+            <label>Journal Info</label>
+            <input type="text" name="journal_info" required>
 
-        <label>Published Date</label>
-        <input type="date" name="published_date" required>
+            <label>Published Date</label>
+            <input type="date" name="published_date" required>
 
-        <label>Upload PDF</label>
-        <input type="file" name="pdf" accept="application/pdf" required>
+            <label>Upload PDF</label>
+            <input type="file" name="pdf" accept="application/pdf" required>
 
-        <button type="submit" name="submit">Save Article</button>
-    </form>
+            <button type="submit" name="submit">Save Article</button>
+        </form>
 
-    <a href="../index.php" class="back-link">⬅ Back to Dashboard</a>
 
-</div>
+
+    </div>
 
 </body>
+
 </html>
