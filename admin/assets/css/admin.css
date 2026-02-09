@@ -15,122 +15,8 @@ body {
 }
 
 /* =======================
-   HEADER (USED IN OTHER PAGES)
-======================= */
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: linear-gradient(135deg, #06557c, #0a6fa1);
-    padding: 15px 30px;
-    color: #fff;
-    border-radius: 0 0 12px 12px;
-    margin-bottom: 30px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.18);
-}
-
-.header h2 {
-    font-size: 1.5rem;
-    font-weight: 600;
-}
-
-.header a {
-    color: #fff;
-    text-decoration: none;
-    background: #e74c3c;
-    padding: 8px 16px;
-    border-radius: 6px;
-    transition: background .25s ease;
-}
-
-.header a:hover {
-    background: #c0392b;
-}
-
-/* =======================
-   CONTAINER
-======================= */
-.container {
-    max-width: 1200px;
-    margin: 0 auto 40px;
-    padding: 0 20px;
-}
-
-/* =======================
-   DASHBOARD GRID
-======================= */
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 24px;
-}
-
-/* =======================
-   DASHBOARD CARDS
-======================= */
-.card {
-    background: #ffffff;
-    border-radius: 14px;
-    padding: 26px 24px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 220px;
-    transition: all .25s cubic-bezier(.4,0,.2,1);
-}
-
-.card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 18px 45px rgba(0,0,0,0.15);
-}
-
-.card h3 {
-    margin-bottom: 16px;
-    font-size: 18px;
-    font-weight: 600;
-}
-
-/* =======================
-   CARD BUTTONS
-======================= */
-.card-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-}
-
-.card-buttons a {
-    flex: 1;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px 0;
-    border-radius: 9px;
-    text-decoration: none;
-    color: #fff;
-    font-weight: 600;
-    transition: all .2s ease;
-}
-
-.card-buttons a:hover {
-    opacity: 0.95;
-    transform: translateY(-2px);
-}
-
-/* =======================
-   CARD COLORS
-======================= */
-.card:nth-child(1) a { background: #2980b9; }
-.card:nth-child(2) a { background: #27ae60; }
-.card:nth-child(3) a { background: #8e44ad; }
-.card:nth-child(4) a { background: #d35400; }
-.card:nth-child(5) a { background: #c0392b; }
-.card:nth-child(6) a { background: #1f2d96; }
-
-/* =========================================================
    ADMIN TOP BAR
-========================================================= */
+======================= */
 .admin-topbar {
     height: 60px;
     background: linear-gradient(135deg, #1f2d3d, #2c3e50);
@@ -149,8 +35,8 @@ body {
 
 .admin-actions {
     display: flex;
-    gap: 15px;
     align-items: center;
+    gap: 15px;
 }
 
 .admin-actions a {
@@ -159,7 +45,6 @@ body {
     text-decoration: none;
     padding: 6px 16px;
     border-radius: 7px;
-    transition: all .2s ease;
 }
 
 .admin-actions a:hover {
@@ -188,72 +73,60 @@ body {
 }
 
 .admin-sidebar li {
-    padding: 10px 3px;
+    padding: 10px 18px;
     font-size: 14px;
     color: #cfd8dc;
     cursor: pointer;
-    transition: all .25s ease;
-   
+    border-radius: 8px;
+    margin: 4px 10px;
+    transition: background .25s ease;
 }
 
 .admin-sidebar li:hover,
 .admin-sidebar li.active {
-    background: #2c3e50;
-    color: #ffffff;
+    background: rgba(255,255,255,0.08);
+    color: #fff;
 }
 
 /* =======================
-   DROPDOWN MENU (HOVER)
+   DROPDOWN MENU
 ======================= */
 .has-dropdown {
     position: relative;
 }
 
-.has-dropdown > .dropdown-toggle {
+.dropdown-toggle {
     display: block;
     cursor: pointer;
-    padding: 10px 20px;
-    color: #cfd8dc;
-    transition: background .25s ease, color .25s ease;
-    border-radius: 20px 20px;
-}
-
-.has-dropdown > .dropdown-toggle:hover {
-    background: #0ea3c5;
-    color: #ffffff;
-    margin-left: 10px;
-
 }
 
 .submenu {
     list-style: none;
-    background: #404c57;
-    margin-left: 20px;
-    border-radius: 20px;
+    background: #2f3e4e;
+    margin-left: 12px;
+    border-radius: 8px;
     max-height: 0;
-    overflow: hidden;   
+    overflow: hidden;
+    transition: max-height .3s ease;
 }
 
-.has-dropdown:hover > .submenu {
-    max-height: 100px;
-    opacity: 1;
-    
+.has-dropdown:hover .submenu {
+    max-height: 300px;
 }
 
 .submenu li a {
     display: block;
-    padding: 7px 18px;
-    font-size: 15px;
+    padding: 6px 12px;
+    font-size: 13px;
     color: #cfd8dc;
     text-decoration: none;
     text-align: center;
-    transition: background .2s ease;
 }
 
 .submenu li a:hover {
     background: #1abc9c;
-    color: #ffffff;
-    border-radius: 10px 10px;
+    color: #fff;
+    border-radius: 6px;
 }
 
 /* =======================
@@ -266,110 +139,296 @@ body {
 }
 
 /* =======================
+   PAGE TITLE
+======================= */
+.page-title {
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+/* =======================
+   DASHBOARD GRID
+======================= */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+/* =======================
+   DASHBOARD CARDS (ANIMATED)
+======================= */
+.card {
+    position: relative;
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 30px;
+    min-height: 180px;
+    overflow: hidden;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    transition: transform .35s ease, box-shadow .35s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px) scale(1.01);
+    box-shadow: 0 18px 45px rgba(0,0,0,0.25);
+}
+
+/* GLOW */
+.card::before {
+    content: "";
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    background: radial-gradient(circle, rgba(52,152,219,0.25), transparent 70%);
+    top: -60px;
+    right: -60px;
+    opacity: 0;
+    transition: opacity .4s ease;
+}
+
+.card:hover::before {
+    opacity: 1;
+}
+
+/* SHIMMER */
+.card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 120%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,0.4),
+        transparent
+    );
+    transition: left .7s ease;
+}
+
+.card:hover::after {
+    left: 100%;
+}
+/* =======================
+   EXTRA ANIMATIONS FOR STAT CARDS
+======================= */
+
+/* BREATHING BORDER GLOW */
+.card.stat-card {
+    position: relative;
+}
+
+.card.stat-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    padding: 2px;
+    background: linear-gradient(
+        120deg,
+        rgba(52,152,219,0.8),
+        rgba(155,89,182,0.8),
+        rgba(46,204,113,0.8)
+    );
+    background-size: 300% 300%;
+    animation: borderGlow 6s ease infinite;
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
+/* BORDER FLOW */
+@keyframes borderGlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* ICON ROTATE + BOUNCE ON HOVER */
+.card.stat-card:hover .stat-icon {
+    animation: iconSpin .9s ease-in-out;
+}
+
+@keyframes iconSpin {
+    0%   { transform: rotate(0deg) scale(1); }
+    50%  { transform: rotate(12deg) scale(1.15); }
+    100% { transform: rotate(0deg) scale(1); }
+}
+
+/* COUNT WAVE EFFECT */
+.card.stat-card:hover .stat-info span {
+    animation: waveCount .6s ease-in-out;
+}
+
+@keyframes waveCount {
+    0%   { transform: translateY(0); }
+    30%  { transform: translateY(-6px); }
+    60%  { transform: translateY(4px); }
+    100% { transform: translateY(0); }
+}
+
+/* FLOATING DOT PARTICLES */
+.card.stat-card .particle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: rgba(255,255,255,0.6);
+    border-radius: 50%;
+    animation: floatParticle 6s linear infinite;
+    pointer-events: none;
+}
+
+.card.stat-card .particle:nth-child(1) {
+    top: 70%;
+    left: 15%;
+    animation-delay: 0s;
+}
+
+.card.stat-card .particle:nth-child(2) {
+    top: 80%;
+    left: 70%;
+    animation-delay: 2s;
+}
+
+.card.stat-card .particle:nth-child(3) {
+    top: 60%;
+    left: 50%;
+    animation-delay: 4s;
+}
+
+@keyframes floatParticle {
+    0% {
+        transform: translateY(0);
+        opacity: 0;
+    }
+    30% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-60px);
+        opacity: 0;
+    }
+}
+
+/* SOFT CARD BREATHING */
+.card.stat-card {
+    animation: cardBreathe 5s ease-in-out infinite;
+}
+
+@keyframes cardBreathe {
+    0%   { transform: scale(1); }
+    50%  { transform: scale(1.01); }
+    100% { transform: scale(1); }
+}
+
+
+/* =======================
+   STAT HEADER
+======================= */
+.stat-header {
+    display: flex;
+    align-items: center;
+    gap: 19px;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+}
+
+/* =======================
+   ICON
+======================= */
+.stat-icon {
+    width: 70px;
+    height: 50px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    color: #fff;
+    animation: pulse 3s infinite;
+}
+
+/* ICON ANIMATION */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+    100% { transform: scale(1); }
+}
+
+/* =======================
+   STAT TEXT
+======================= */
+.stat-info h4 {
+    font-size: 25px;
+    color: #7f8c8d;
+    font-weight: 700;
+}
+
+.stat-info span {
+    font-size: 26px;
+    font-weight: 700;
+    display: inline-block;
+    animation: countPop .6s ease-in-out;
+}
+
+/* NUMBER POP */
+@keyframes countPop {
+    from { transform: scale(.85); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* COLORS */
+.blue .stat-icon { background: #3498db; }
+.green .stat-icon { background: #2ecc71; }
+.red .stat-icon { background: #e74c3c; }
+.orange .stat-icon { background: #f39c12; }
+.purple .stat-icon { background: #9b59b6; }
+.teal .stat-icon { background: #1abc9c; }
+
+/* =======================
    PAGE CONTAINER
 ======================= */
 .page-container {
+    position: relative;
     max-width: 1100px;
     margin: 40px auto;
     background: #ffffff;
-    padding: 28px 32px;
-    border-radius: 10px;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.07);
 }
 
-/* =======================
-   ADMIN TABLE
-======================= */
-.admin-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 25px;
-    background: #ffffff;
-    border-radius: 6px;
-    overflow: hidden;
-}
-
-.admin-table thead {
-    background: #e74c3c;
-}
-
-.admin-table thead th {
-    color: #ffffff;
-    padding: 14px 12px;
-    font-size: 13px;
-    text-transform: uppercase;
-    letter-spacing: .5px;
-}
-
-.admin-table tbody tr:nth-child(odd) {
-    background: #f7fbff;
-}
-
-.admin-table td {
-    padding: 14px 12px;
-    font-size: 14px;
-}
-
-.admin-table a.edit {
-    color: #007bff;
-    font-weight: 600;
-}
-
-.admin-table a.delete {
-    color: #e74c3c;
-    font-weight: 600;
-}
-/*---   ---*/
-
-/* =======================
-   PAGE TITLE
-======================= */
 .page-container h2 {
     font-size: 22px;
     margin-bottom: 22px;
     color: #2c3e50;
     border-left: 5px solid #3498db;
     padding-left: 12px;
+    margin-top: 20px;
 }
 
 /* =======================
    BACK LINK
 ======================= */
-.back-link ,.back  {
-    display: inline-block;
-    margin-bottom: 16px;
+.back-link,
+.back {
+    position: absolute;
+    top: 18px;
+    right: 20px;
     text-decoration: none;
     color: #3498db;
     font-weight: 600;
 }
 
-.back-link:hover ,.back:hover  {
+.back-link:hover,
+.back:hover {
     text-decoration: underline;
-}
-
-/* =======================
-   BACK LINK – TOP LEFT
-======================= */
-.page-container {
-    position: relative;   /* required */
-}
-
-.page-container .back-link {
-    position: absolute;
-    top: 18px;
-    right: 20px;
-    margin: 0;
-}
-
-.back {
-    position: absolute;
-    top: 18px;
-    bottom: 20px;
-    margin: 0;
-}
-
-.page-container h2 {
-    margin-top: 20px;
 }
 
 /* =======================
@@ -403,6 +462,53 @@ form button {
     cursor: pointer;
 }
 
+form button:hover {
+    background: #2980b9;
+}
+
+/* =======================
+   ADMIN TABLE
+======================= */
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 25px;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+}
+
+.admin-table thead {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+}
+
+.admin-table th {
+    color: #fff;
+    padding: 14px 12px;
+    font-size: 13px;
+    text-transform: uppercase;
+}
+
+.admin-table td {
+    padding: 14px 12px;
+    font-size: 14px;
+}
+
+.admin-table tbody tr:nth-child(odd) {
+    background: #f7fbff;
+}
+
+.admin-table a.edit {
+    color: #007bff;
+    font-weight: 600;
+}
+
+.admin-table a.delete {
+    color: #e74c3c;
+    font-weight: 600;
+}
+
 /* =======================
    RESPONSIVE
 ======================= */
@@ -413,9 +519,5 @@ form button {
 
     .admin-layout {
         flex-direction: column;
-    }
-
-    .card-buttons a {
-        flex: 1 1 100%;
     }
 }
