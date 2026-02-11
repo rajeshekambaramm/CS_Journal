@@ -298,6 +298,11 @@ body {
 .section-content {
     margin-left: 50px;
 }
+.section-content p {
+    text-align: justify;
+    line-height: 1.8;
+    font-size: 15px;
+}
 
 .about-section h3 {
     margin-left: 0;

@@ -93,7 +93,7 @@ systems.
     <!-- LEFT SIDEBAR -->
     <div class="left-sidebar">
         <aside class="details">
-            <img src="image/index_img.png" alt="Journal Image">
+            <img src="image/image.png" alt="Journal Image">
             <p><strong>Frequency:</strong> Half-yearly</p>
         </aside>
 
@@ -113,7 +113,7 @@ systems.
         <h2>International Journal of Advanced Computing Science and Innovation (IJACSI)</h2>
 
         <h3>AIM</h3>
-        <div class="section-content">
+        <div class="section-content" style="align:justfy">
         <p>
             The main aim of this initiative is to inculcate Scientific Writing in our CS
             students and providing them an avenue to publish their work. IJACSI aims
