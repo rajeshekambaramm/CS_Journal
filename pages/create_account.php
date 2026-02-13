@@ -39,35 +39,42 @@ if (isset($_POST['register'])) {
 
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Create Account</title>
     <link rel="stylesheet" href="../assets/css/style.css">
+    <!-- Page-specific CSS -->
 </head>
 
 <body>
+    <!-- RESOURCES CARD -->
+    <div class="auth-container">
 
-<div class="auth-container">
-    <div class="auth-card">
-        <h2>Create an Account</h2>
+        <div class="auth-card">
+            <h2>Create an Account</h2>
 
-        <?php if ($error) echo "<p class='error'>$error</p>"; ?>
-        <?php if ($success) echo "<p class='success'>$success</p>"; ?>
+            <?php if ($error)
+                echo "<p class='error'>$error</p>"; ?>
+            <?php if ($success)
+                echo "<p class='success'>$success</p>"; ?>
 
-        <form method="post">
-            <input type="text" name="name" placeholder="Full Name" required>
-            <input type="email" name="email" placeholder="Email Address" required>
-            <input type="password" name="password" placeholder="Password" required>
-            <input type="password" name="confirm_password" placeholder="Confirm Password" required>
+            <form method="post">
+                <input type="text" name="name" placeholder="Full Name" required>
+                <input type="email" name="email" placeholder="Email Address" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <input type="password" name="confirm_password" placeholder="Confirm Password" required>
 
-            <button type="submit" name="register">Create Account</button>
-        </form>
+                <button type="submit" name="register">Create Account</button>
+            </form>
 
-        <p class="auth-link">
-            Already have an account?
-            <a href="login.php">Login</a>
-        </p>
+            <p class="auth-link">
+                Already have an account?
+                <a href="login.php">Login</a>
+            </p>
+        </div>
+
     </div>
-</div>
 
 </body>
+
 </html>
