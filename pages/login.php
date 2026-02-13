@@ -1,41 +1,47 @@
 <?php
 session_start();
 include '../config/db.php';
-include '../includes/header.php';
 
 $error = '';
 
-// Already logged in → redirect
+// If already logged in → go to next_page.php
 if (isset($_SESSION['user'])) {
-    header("Location: ../index.php");
+    header("Location: login.php");
     exit();
 }
 
-
 if (isset($_POST['login'])) {
+
     $email = mysqli_real_escape_string($conn, $_POST['email']);
     $password = $_POST['password'];
 
-    $query = "SELECT * FROM users WHERE email='$email'";
+    $query = "SELECT * FROM users WHERE email='$email' LIMIT 1";
     $result = mysqli_query($conn, $query);
 
-    if (mysqli_num_rows($result) === 1) {
+    if ($result && mysqli_num_rows($result) === 1) {
+
         $row = mysqli_fetch_assoc($result);
 
+        // Compare MD5 password
         if (md5($password) === $row['password']) {
-            $_SESSION['user'] = $email;
-           $redirect = $_GET['redirect'] ?? '../index.php';
-header("Location: $redirect");
-exit();
+
+            $_SESSION['user'] = $row['email'];
+            $_SESSION['user_id'] = $row['id'];
+
+            // Redirect after login
+            header("Location: ../index.php");
+            exit();
 
         } else {
             $error = "Invalid email or password";
         }
+
     } else {
         $error = "Invalid email or password";
     }
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">

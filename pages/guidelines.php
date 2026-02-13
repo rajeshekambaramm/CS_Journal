@@ -1,14 +1,14 @@
-
-<?php
-include '../includes/header.php';
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Author Guidelines</title>
     <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<?php include '../includes/header.php'; ?>
+
 
     <style>
         .guidelines-wrapper {
@@ -55,22 +55,24 @@ include '../includes/header.php';
 
 <body>
 
+
 <div class="guidelines-wrapper">
 
     <h1>Author Guidelines</h1>
 
-    <!-- Download Word File -->
     <div class="download-box">
         <a href="../uploads/guidelines/author_guidelines.docx" download>
             ⬇ Download Guidelines (Word)
         </a>
     </div>
 
-    <!-- Embedded PDF Viewer -->
-    <iframe 
-        class="pdf-viewer"
-        src="../uploads/guidelines/author_guidelines.pdf">
-    </iframe>
+    <object 
+    data="../uploads/guidelines/author_guidelines.pdf" 
+    type="application/pdf"
+    width="100%" 
+    height="700px">
+</object>
+
 
 </div>
 

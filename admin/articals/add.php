@@ -80,13 +80,13 @@ if (isset($_POST['submit'])) {
         <form method="post" enctype="multipart/form-data">
 
             <label>Article Type</label>
-            <select name="article_type" required>
+            <select class="type" name="article_type" required>
                 <option value="Research Article">Research Article</option>
                 <option value="Review Article">Review Article</option>
             </select>
 
             <label>Access Type</label>
-            <select name="access_type" required>
+            <select class="type" name="access_type" required>
                 <option value="Open Access">Open Access</option>
                 <option value="Restricted">Restricted</option>
             </select>

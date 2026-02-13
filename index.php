@@ -65,6 +65,7 @@ systems.
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Journal of Computer Science</title>
@@ -73,111 +74,124 @@ systems.
 
 <body>
 
-<!-- HEADER -->
-<header class="header">
-    <div class="logo">
-        <img src="image/College_logo.png" alt="BHC" width="40" height="50">
-        BHC CS JOURNALS
-    </div>
-
-    <nav>
-        <a href="index.php">JOURNALS</a>
-        <a href="pages/organizational_structure.php">RESOURCES</a>
-        <a href="pages/about.php">ABOUT</a>
-        <a href="#">CONTACT</a>
-    </nav>
-</header>
-
-<div class="container">
-
-    <!-- LEFT SIDEBAR -->
-    <div class="left-sidebar">
-        <aside class="details">
-            <img src="image/image.png" alt="Journal Image">
-            <p><strong>Frequency:</strong> Half-yearly</p>
-        </aside>
-
-        <aside class="sidebar">
-            <ul class="menu">
-                <li class="menu-item"><a href="/pro/pages/create_account.php">SUBMIT YOUR ARTICLE</a></li>
-                <li class="menu-item"><a href="pages/create_account.php">JOIN AS AN EDITOR</a></li>
-                <li class="menu-item"><a href="pages/current.php">CURRENT</a></li>
-                <li class="menu-item"><a href="pages/organizational_structure.php">ORGANIZATIONAL STRUCTURE</a></li>
-            </ul>
-        </aside>
-    </div>
-
-    <!-- MAIN CONTENT -->
-    <main class="content">
-        <h1>Journal of Computer Science</h1>
-        <h2>International Journal of Advanced Computing Science and Innovation (IJACSI)</h2>
-
-        <h3>AIM</h3>
-        <div class="section-content" style="align:justfy">
-        <p>
-            The main aim of this initiative is to inculcate Scientific Writing in our CS
-            students and providing them an avenue to publish their work. IJACSI aims
-            to publish high-quality, peer-reviewed research that advances the fields of
-            <strong>Computer Science, Artificial Intelligence, and Emerging Technologies</strong>,
-            fostering innovation and providing a platform for global knowledge exchange.
-        </p>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="logo">
+            <img src="image/College_logo.png" alt="BHC" width="40" height="50">
+            BHC CS JOURNALS
         </div>
 
-        <h3>FOCUS</h3>
-        <div class="section-content">
-        <p>
-            The Journal of Advanced Computing Science and Innovation (JACSI)
-            publishes high-quality research in core and emerging areas of Computer
-            Science. The journal welcomes original research, reviews, and case studies
-            across modern computing disciplines.
-        </p>
+        <nav>
+            <a href="index.php">JOURNALS</a>
+            <a href="pages/organizational_structure.php">RESOURCES</a>
+            <a href="pages/about.php">ABOUT</a>
+            <a href="#">CONTACT</a>
+        </nav>
+    </header>
+
+    <div class="container">
+
+        <!-- LEFT SIDEBAR -->
+        <div class="left-sidebar">
+            <aside class="details">
+                <img src="image/image.png" alt="Journal Image">
+                <p><strong>Frequency:</strong> Half-yearly</p>
+            </aside>
+
+            <aside class="sidebar">
+                <ul class="menu">
+                    <li class="menu-item"><a href="/pro/pages/create_account.php">SUBMIT YOUR ARTICLE</a></li>
+                    <li class="menu-item"><a href="pages/create_account.php">JOIN AS AN EDITOR</a></li>
+                    <li class="menu-item"><a href="pages/current.php">CURRENT</a></li>
+                    <li class="menu-item"><a href="pages/organizational_structure.php">ORGANIZATIONAL STRUCTURE</a></li>
+                    <li class="menu-item"><a href="pages/guidelines.php">GUIDLINES</a></li>
+                </ul>
+            </aside>
         </div>
-        
-        <h3>SCOPE</h3>
-        <div class="section-content"><?php echo $scope; ?></div>
-        
 
-        <!-- ANNOUNCEMENTS -->
-        <div class="announcements">
-            <h1>ANNOUNCEMENTS</h1>
-            <?php if (!empty($announcements)) : ?>
-                <?php foreach ($announcements as $ann) : ?>
-                    <div class="card">
-                        <h4><?= htmlspecialchars($ann['title']) ?></h4>
-                        <p><?= nl2br(htmlspecialchars($ann['description'])) ?></p>
-                    </div>
-                <?php endforeach; ?>
-            <?php endif; ?>
-        </div>
+        <!-- MAIN CONTENT -->
+        <main class="content">
+            <h1>Journal of Computer Science</h1>
+            <h2>International Journal of Advanced Computing Science and Innovation (IJACSI)</h2>
 
-        <!-- ARTICLES -->
-        <div class="articles">
-            <h1>ARTICLES</h1>
-            <?php if (!empty($articles)) : ?>
-                <?php foreach ($articles as $art) : ?>
-                    <div class="card">
-                        <p><strong><?= htmlspecialchars($art['article_type']) ?></strong> - <?= htmlspecialchars($art['access_type']) ?></p>
-                        <h3><?= htmlspecialchars($art['title']) ?></h3>
-                        <p><em><?= htmlspecialchars($art['authors']) ?></em></p>
-                        <p><?= htmlspecialchars($art['journal_info']) ?></p>
-                        <p>Published: <?= date('d M Y', strtotime($art['published_date'])) ?></p>
+            <h3>AIM</h3>
+            <div class="section-content" style="align:justfy">
+                <p>
+                    The main aim of this initiative is to inculcate Scientific Writing in our CS
+                    students and providing them an avenue to publish their work. IJACSI aims
+                    to publish high-quality, peer-reviewed research that advances the fields of
+                    <strong>Computer Science, Artificial Intelligence, and Emerging Technologies</strong>,
+                    fostering innovation and providing a platform for global knowledge exchange.
+                </p>
+            </div>
 
-                        <p>
+            <h3>FOCUS</h3>
+            <div class="section-content">
+                <p>
+                    The Journal of Advanced Computing Science and Innovation (JACSI)
+                    publishes high-quality research in core and emerging areas of Computer
+                    Science. The journal welcomes original research, reviews, and case studies
+                    across modern computing disciplines.
+                </p>
+            </div>
+
+            <h3>SCOPE</h3>
+            <div class="section-content"><?php echo $scope; ?></div>
+
+
+            <!-- ANNOUNCEMENTS -->
+            <div class="announcements">
+                <h1>ANNOUNCEMENTS</h1>
+                <?php if (!empty($announcements)): ?>
+                    <?php foreach ($announcements as $ann): ?>
+                        <div class="card">
+                            <h4><?= htmlspecialchars($ann['title']) ?></h4>
+                            <p><?= nl2br(htmlspecialchars($ann['description'])) ?></p>
+                        </div>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+            </div>
+
+            <!-- ARTICLES -->
+            <div class="articles">
+                <h1>ARTICLES</h1>
+                <?php if (!empty($articles)): ?>
+                    <?php foreach ($articles as $art): ?>
+                        <div class="card">
+                            <p><strong><?= htmlspecialchars($art['article_type']) ?></strong> -
+                                <?= htmlspecialchars($art['access_type']) ?>
+                            </p>
+                            <h3><?= htmlspecialchars($art['title']) ?></h3>
+                            <p><em><?= htmlspecialchars($art['authors']) ?></em></p>
+                            <p><?= htmlspecialchars($art['journal_info']) ?></p>
+                            <p>Published: <?= date('d M Y', strtotime($art['published_date'])) ?></p>
+
+                            <!--  <p>
                             <a href="admin/articals/download.php<?= urlencode($art['pdf_file']) ?>" target="_blank">
                                 Download PDF
                             </a>
-                        </p>
+                        </p> -->
+                            <!-- <p>
+                                <a href="admin/articals/download.php?file=<?= urlencode($art['pdf_file']) ?>" target="_blank">
+                                    Download PDF
+                                </a>
+                            </p> -->
+                            <a href="admin/articals/download.php?id=<?= $art['id'] ?>" target="_blank">
+                                Download PDF
+                            </a>
 
-                        
-                    </div>
-                <?php endforeach; ?>
-            <?php endif; ?>
-        </div>
 
-    </main>
-</div>
 
-<?php include 'includes/footer.php'; ?>
-<script src="assets/js/script.js"></script>
+                        </div>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+            </div>
+
+        </main>
+    </div>
+
+    <?php include 'includes/footer.php'; ?>
+    <script src="assets/js/script.js"></script>
 </body>
+
 </html>

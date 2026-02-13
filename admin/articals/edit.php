@@ -53,10 +53,11 @@ $result = mysqli_query(
                             <td><?= $row['access_type'] ?></td>
                             <td><?= date('d M Y', strtotime($row['published_date'])) ?></td>
                             <td>
-                                <a href="../../uploads/pdfs/<?= $row['pdf_file'] ?>" target="_blank">
+                                <a href="download.php?id=<?= $row['id'] ?>" target="_blank">
                                     View PDF
                                 </a>
                             </td>
+
                             <td>
                                 <a href="update.php?id=<?= $row['id'] ?>" class="edit">Edit</a> |
                                 <a href="delete.php?id=<?= $row['id'] ?>" class="delete"
