@@ -28,14 +28,14 @@ if (isset($_POST['login'])) {
 <head>
     <title>Admin Login</title>
     <style>
-        body { font-family: Arial; background:#f4f4f4; }
+        body { font-family: Arial; background:#f4f4f4;}
         .login-box {
-            width:300px; margin:100px auto;
-            background:#fff; padding:20px;
+            width:300px; margin:90px auto;
+            background:#fff; padding:30px;
             box-shadow:0 0 10px #ccc;
         }
         input, button {
-            width:100%; padding:8px; margin:8px 0;
+            width:90%; padding:9px; margin:8px ;
         }
     </style>
 </head>

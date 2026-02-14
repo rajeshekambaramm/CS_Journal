@@ -20,7 +20,7 @@ body {
 ======================= */
 .admin-topbar {
     height: 80px;
-    background: linear-gradient(90deg, #105fb9, #174f86,#233140);
+    background: linear-gradient(90deg, #174f86);
     color: #fff;
     display: flex;
     align-items: center;
@@ -66,7 +66,7 @@ body {
 ======================= */
 .admin-sidebar {
     width: 250px;
-    background: linear-gradient(185deg, #233140,#174f86, #0570eb);
+    background: linear-gradient(185deg, #233140);
     padding-top: 18px;
 }
 
@@ -164,7 +164,7 @@ body {
 ======================= */
 .card {
     position: relative;
-    background: #f0fffc;
+    background: #ffffff;
     border-radius: 20px;
     padding: 20px;
     min-height: 80px;
@@ -289,7 +289,7 @@ body {
     animation: iconSpin .8s ease;
     font-size: 45px;
     width: 100px;
-    height: 20px;
+    height: 30px;
 }
 
 @keyframes iconSpin {

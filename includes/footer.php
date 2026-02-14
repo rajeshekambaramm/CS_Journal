@@ -6,31 +6,23 @@
             <div class="footer-col">
                 <h4>Publish with us</h4>
                 <ul>
-                    <li><a href="#">Journals</a></li>
-                    <li><a href="#">Open Access</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="../index.php">Journals</a></li>
+                    <li><a href="../index.php">Open Access</a></li>
+                    <li><a href="../pages/about.php">About</a></li>
+                    <li><a href="../index.php">Contact</a></li>
                 </ul>
             </div>
 
             <div class="footer-col">
                 <h4>Resources for</h4>
                 <ul>
-                    <li><a href="#">Authors</a></li>
-                    <li><a href="#">Reviewers</a></li>
-                    <li><a href="#">Editors</a></li>
+                    <li><a href="pages/organizational_structure.php">Authors</a></li>
+                    <li><a href="pages/organizational_structure.php">Reviewers</a></li>
+                    <li><a href="pages/organizational_structure.php">Editors</a></li>
                 </ul>
             </div>
 
-            <div class="footer-col">
-                <h4>Standards</h4>
-                <ul>
-                    <li><a href="#">Policies</a></li>
-                    <li><a href="#">Ethics</a></li>
-                    <li><a href="#">Privacy</a></li>
-                </ul>
-            </div>
-
+            
             <div class="footer-col">
                 <h4>Connect</h4>
                 <ul>
