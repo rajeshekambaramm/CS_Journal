@@ -85,7 +85,8 @@ systems.
             <a href="index.php">JOURNALS</a>
             <a href="pages/organizational_structure.php">RESOURCES</a>
             <a href="pages/about.php">ABOUT</a>
-            <a href="#">CONTACT</a>
+            <a href="pages/contact.php">CONTACT</a>
+
         </nav>
     </header>
 
@@ -94,7 +95,7 @@ systems.
         <!-- LEFT SIDEBAR -->
         <div class="left-sidebar">
             <aside class="details">
-                <img src="image/image.png" alt="Journal Image">
+                <img src="image/index.jpg" alt="Journal Image">
                 <p><strong>Frequency:</strong> Half-yearly</p>
             </aside>
 

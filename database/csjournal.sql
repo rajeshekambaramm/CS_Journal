@@ -19,6 +19,16 @@ INSERT INTO admin (username, password)
 SELECT 'admin', '21232f297a57a5a743894a0e4a801fc3'
 WHERE NOT EXISTS (SELECT 1 FROM admin WHERE username='admin');
 
+/* ---- contat---- */
+CREATE TABLE IF NOT EXISTS contact_messages (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(150) NOT NULL,
+    subject VARCHAR(200) NOT NULL,
+    message TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
 -- =========================================
 -- Users TABLE
 -- =========================================

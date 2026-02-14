@@ -462,6 +462,67 @@ form button:hover {
     font-size: 15px;
     font-weight: 600;
 }
+/* ===== Messages Container ===== */
+
+.messages-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* ===== Message Card ===== */
+
+.message-card {
+    background: #ffffff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.message-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+}
+
+/* ===== Subject Header ===== */
+
+.message-header {
+    font-size: 18px;
+    font-weight: bold;
+    color: #06557c;
+    margin-bottom: 10px;
+}
+
+/* ===== Message Info ===== */
+
+.message-card p {
+    margin: 5px 0;
+    color: #444;
+}
+
+.message-card strong {
+    color: #000;
+}
+
+/* ===== Message Body ===== */
+
+.message-body {
+    margin-top: 10px;
+    padding: 12px;
+    background: #f1f1f1;
+    border-radius: 5px;
+    line-height: 1.5;
+}
+
+/* ===== Date ===== */
+
+.message-date {
+    display: block;
+    margin-top: 12px;
+    font-size: 13px;
+    color: #777;
+}
 
 /* =======================
    RESPONSIVE
@@ -473,5 +534,9 @@ form button:hover {
 
     .admin-layout {
         flex-direction: column;
+    }
+    
+    .message-card {
+        padding: 15px;
     }
 }

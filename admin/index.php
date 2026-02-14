@@ -9,6 +9,8 @@ $announcementCount = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(id) AS
 $currentCount = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(id) AS total FROM current_updates"))['total'];
 $orgCount = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(id) AS total FROM organizational_members"))['total'];
 $userCount = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(id) AS total FROM users"))['total'];
+$conCount = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(id) AS total FROM contact_messages"))['total'];
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -81,6 +83,13 @@ $userCount = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(id) AS total F
             <ul class="submenu">
                 <li><a href="login/add.php">Add User</a></li>
                 <li><a href="login/edit.php">Manage</a></li>
+            </ul>
+        </li>
+        <li class="has-dropdown">
+            <span class="dropdown-toggle"> 📞 contact</span>
+            <ul class="submenu">
+                <li><a href="contact/view.php">View</a></li>
+                <!-- <li><a href="login/edit.php">Manage</a></li> -->
             </ul>
         </li>
     </ul>
@@ -157,6 +166,17 @@ $userCount = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(id) AS total F
                 </div>
             </div>
         </div>
+        <div class="card stat-card teal">
+            <span class="particle"></span><span class="particle"></span><span class="particle"></span>
+            <div class="stat-header">
+                <div class="stat-icon">📞</div>
+                <div class="stat-info">
+                    <h4>Contact</h4>
+                    <span><?= $conCount ?></span>
+                </div>
+            </div>
+        </div>
+        
 
     </div>
 </main>
