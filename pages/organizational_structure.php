@@ -67,7 +67,23 @@ include '../config/db.php';   // DB connection
     <h1>Organizational Structure</h1>
 
     <?php
-    $query = "SELECT * FROM organizational_members ORDER BY section, id";
+    $query = "SELECT * FROM organizational_members 
+          ORDER BY 
+          FIELD(section,
+              'Chief Editor',
+              'Associate Editors',
+              'Managerial Editorial Team',
+              'Patrons',
+              'Editorial Board Members',
+              'Panel of Reviewers',
+              'International Advisory Board',
+              'Technical Team',
+              'Publication & Ethics Committee',
+              'Communication & Promotion Team',
+              'Publication Schedule'
+          ),
+          id ASC";
+
     $result = mysqli_query($conn, $query);
 
     if (mysqli_num_rows($result) > 0) {

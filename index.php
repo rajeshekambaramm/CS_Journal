@@ -78,7 +78,7 @@ systems.
     <header class="header">
         <div class="logo">
             <img src="image/College_logo.png" alt="BHC" width="40" height="50">
-            BHC CS JOURNALS
+            International Journal of Advanced Computing Science and Innovation (IJACSI)
         </div>
 
         <nav>

@@ -125,18 +125,17 @@ CREATE TABLE IF NOT EXISTS articles (
 -- ORGANIZATIONAL STRUCTURE INSERTS
 -- =========================================
 
--- 1. Patrons
-INSERT IGNORE INTO organizational_members (section, role, name, category) VALUES
-('Patrons', 'Chief Patron', 'Revered Bishop Ayya', 'Internal'),
-('Patrons', 'Patron', 'Dr. Princy Merlin, Principal, BHC', 'Internal'),
-('Patrons', 'Advisory Patron', 'Dr. Violet Dhayabaran, Dean, Academics-Sciences', 'Internal'),
-('Patrons', 'Advisory Patron', 'Dr. Vijayalakshmi, Dean, Research and Development', 'Internal'),
-('Patrons', 'Advisory Patron', 'Dr. Angeline Vedha, Dean, IQAC', 'Internal');
-
--- 2. Chief Editor
+-- 1. Chief Editor
 INSERT IGNORE INTO organizational_members (section, role, name, category) VALUES
 ('Chief Editor', 'Editor-in-Chief', 'Dr. J.G.R. Sathiaseelan', 'Internal'),
 ('Chief Editor', 'Associate Chief-Editor', 'Dr. K. Rajkumar', 'Internal');
+
+-- 2. Associate Editors
+INSERT IGNORE INTO organizational_members (section, role, name, category) VALUES
+('Associate Editors', '', 'Dr. John Raybin Jose', 'Internal'),
+('Associate Editors', '', 'Dr. R. Jemima Priyadarshini', 'Internal'),
+('Associate Editors', '', 'Dr. J. James Manoharan', 'Internal'),
+('Associate Editors', '', 'Dr. Isac Gnanaraj', 'Internal');
 
 -- 3. Managerial Editorial Team
 INSERT IGNORE INTO organizational_members (section, role, name, category) VALUES
@@ -145,12 +144,14 @@ INSERT IGNORE INTO organizational_members (section, role, name, category) VALUES
 ('Managerial Editorial Team', '', 'Dr. D. Kirubai', 'Internal'),
 ('Managerial Editorial Team', '', 'Dr. S. Sophia', 'Internal');
 
--- 4. Associate Editors
+-- 4. Patrons
+
 INSERT IGNORE INTO organizational_members (section, role, name, category) VALUES
-('Associate Editors', '', 'Dr. John Raybin Jose', 'Internal'),
-('Associate Editors', '', 'Dr. R. Jemima Priyadarshini', 'Internal'),
-('Associate Editors', '', 'Dr. J. James Manoharan', 'Internal'),
-('Associate Editors', '', 'Dr. Isac Gnanaraj', 'Internal');
+('Patrons', 'Chief Patron', 'Revered Bishop Ayya', 'Internal'),
+('Patrons', 'Patron', 'Dr. Princy Merlin, Principal, BHC', 'Internal'),
+('Patrons', 'Advisory Patron', 'Dr. Violet Dhayabaran, Dean, Academics-Sciences', 'Internal'),
+('Patrons', 'Advisory Patron', 'Dr. Vijayalakshmi, Dean, Research and Development', 'Internal'),
+('Patrons', 'Advisory Patron', 'Dr. Angeline Vedha, Dean, IQAC', 'Internal');
 
 -- 5. Editorial Board Members
 INSERT IGNORE INTO organizational_members (section, role, name, category) VALUES

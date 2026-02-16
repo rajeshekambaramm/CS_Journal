@@ -41,7 +41,7 @@ if (isset($_POST['send'])) {
 
 <?php include '../includes/header.php'; ?>
 
-<div class="container" style="margin-top: 20px;">
+<div class="container" style="margin: 20px 100px;">
     <main class="content">
 
         <h1>Contact Us</h1>
@@ -75,12 +75,10 @@ if (isset($_POST['send'])) {
                 <textarea name="message" rows="5" required style="width:100%; padding:8px; margin-bottom:10px;"></textarea>
 
                 <button type="submit" name="send" 
-                    style="padding:10px 15px; background:#06557c; color:#fff; border:none; cursor:pointer;">
+                    style="padding:10px 15px; background:#06557c; color:#fff; border:none; cursor:pointer;  border-radius: 15px;">
                     Send Message
                 </button>
-
             </form>
-
         </div>
 
     </main>
