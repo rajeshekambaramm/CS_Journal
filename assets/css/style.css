@@ -415,6 +415,22 @@ body {
     font-weight: bold;
 }
 
+.form-input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 12px;
+}
+
+.btn-primary {
+    padding: 10px 15px;
+    background: #06557c;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 15px;
+}
+
+
 /* =========================
    FOOTER – PERFECT ALIGN
    ========================= */

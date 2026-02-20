@@ -103,6 +103,7 @@ $conCount = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(id) AS total FR
 
         <div class="card stat-card blue">
             <span class="particle"></span><span class="particle"></span><span class="particle"></span>
+            <span class="particle"></span><span class="particle"></span><span class="particle"></span>
             <div class="stat-header">
                 <div class="stat-icon">📄</div>
                 <div class="stat-info">
@@ -113,6 +114,7 @@ $conCount = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(id) AS total FR
         </div>
 
         <div class="card stat-card green">
+            <span class="particle"></span><span class="particle"></span><span class="particle"></span>
             <span class="particle"></span><span class="particle"></span><span class="particle"></span>
             <div class="stat-header">
                 <div class="stat-icon">📰</div>
@@ -125,6 +127,7 @@ $conCount = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(id) AS total FR
 
         <div class="card stat-card red">
             <span class="particle"></span><span class="particle"></span><span class="particle"></span>
+            <span class="particle"></span><span class="particle"></span><span class="particle"></span>
             <div class="stat-header">
                 <div class="stat-icon">📢</div>
                 <div class="stat-info">
@@ -135,6 +138,7 @@ $conCount = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(id) AS total FR
         </div>
 
         <div class="card stat-card orange">
+            <span class="particle"></span><span class="particle"></span><span class="particle"></span>
             <span class="particle"></span><span class="particle"></span><span class="particle"></span>
             <div class="stat-header">
                 <div class="stat-icon">🔔</div>
@@ -147,6 +151,7 @@ $conCount = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(id) AS total FR
 
         <div class="card stat-card purple">
             <span class="particle"></span><span class="particle"></span><span class="particle"></span>
+            <span class="particle"></span><span class="particle"></span><span class="particle"></span>
             <div class="stat-header">
                 <div class="stat-icon">🏢</div>
                 <div class="stat-info">
@@ -158,6 +163,7 @@ $conCount = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(id) AS total FR
 
         <div class="card stat-card teal">
             <span class="particle"></span><span class="particle"></span><span class="particle"></span>
+            <span class="particle"></span><span class="particle"></span><span class="particle"></span>
             <div class="stat-header">
                 <div class="stat-icon">👥</div>
                 <div class="stat-info">
@@ -166,7 +172,8 @@ $conCount = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(id) AS total FR
                 </div>
             </div>
         </div>
-        <div class="card stat-card teal">
+        <div class="card stat-card pink">
+            <span class="particle"></span><span class="particle"></span><span class="particle"></span>
             <span class="particle"></span><span class="particle"></span><span class="particle"></span>
             <div class="stat-header">
                 <div class="stat-icon">📞</div>

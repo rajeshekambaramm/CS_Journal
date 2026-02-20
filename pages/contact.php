@@ -31,6 +31,7 @@ if (isset($_POST['send'])) {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Contact Us - Journal of Computer Science</title>
@@ -39,52 +40,64 @@ if (isset($_POST['send'])) {
 
 <body>
 
-<?php include '../includes/header.php'; ?>
+    <?php include '../includes/header.php'; ?>
 
-<div class="container" style="margin: 20px 100px;">
-    <main class="content">
+    <div class="container" style="margin: 20px 100px;">
+        <main class="content">
 
-        <h1>Contact Us</h1>
+            <h1>Contact Us</h1>
 
-        <?php if ($success) { ?>
-            <div class="card" style="background:#d4edda; color:#155724;">
-                <?= htmlspecialchars($success) ?>
+            <!-- 🔹 TOP CONTACT INFORMATION SECTION -->
+            <div class="card">
+                <h3>Journal Contact Information</h3>
+                <p><strong>Address:</strong> Department of Computer Science,
+                <p>Bishop Heber College (Autonomous),</p>
+                <p>Tiruchirappalli – Tamil Nadu, India</p>
+                <p><strong>Email:</strong> journal@IJACSI.com</p>
+                <p><strong>Phone:</strong> +123 456 7890</p>
+                <p><strong>Office Hours:</strong> Monday – Friday, 9:00 AM – 5:00 PM</p>
             </div>
-        <?php } ?>
 
-        <?php if ($error) { ?>
-            <div class="card" style="background:#f8d7da; color:#721c24;">
-                <?= htmlspecialchars($error) ?>
+            <?php if ($success) { ?>
+                <div class="card" style="background:#d4edda; color:#155724;">
+                    <?= htmlspecialchars($success) ?>
+                </div>
+            <?php } ?>
+
+            <?php if ($error) { ?>
+                <div class="card" style="background:#f8d7da; color:#721c24;">
+                    <?= htmlspecialchars($error) ?>
+                </div>
+            <?php } ?>
+
+            <!-- 🔹 CONTACT FORM -->
+            <div class="card">
+
+                <form method="post">
+
+                    <label>Full Name</label>
+                    <input type="text" name="name" required class="form-input">
+
+                    <label>Email Address</label>
+                    <input type="email" name="email" required class="form-input">
+
+                    <label>Subject</label>
+                    <input type="text" name="subject" required class="form-input">
+
+                    <label>Message</label>
+                    <textarea name="message" rows="5" required class="form-input"></textarea>
+
+                    <button type="submit" name="send" class="btn-primary">
+                        Send Message
+                    </button>
+                </form>
             </div>
-        <?php } ?>
 
-        <div class="card">
+        </main>
+    </div>
 
-            <form method="post">
-
-                <label>Full Name</label>
-                <input type="text" name="name" required style="width:100%; padding:8px; margin-bottom:10px;">
-
-                <label>Email Address</label>
-                <input type="email" name="email" required style="width:100%; padding:8px; margin-bottom:10px;">
-
-                <label>Subject</label>
-                <input type="text" name="subject" required style="width:100%; padding:8px; margin-bottom:10px;">
-
-                <label>Message</label>
-                <textarea name="message" rows="5" required style="width:100%; padding:8px; margin-bottom:10px;"></textarea>
-
-                <button type="submit" name="send" 
-                    style="padding:10px 15px; background:#06557c; color:#fff; border:none; cursor:pointer;  border-radius: 15px;">
-                    Send Message
-                </button>
-            </form>
-        </div>
-
-    </main>
-</div>
-
-<?php include '../includes/footer.php'; ?>
+    <?php include '../includes/footer.php'; ?>
 
 </body>
+
 </html>

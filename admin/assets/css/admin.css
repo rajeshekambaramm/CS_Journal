@@ -20,7 +20,7 @@ body {
 ======================= */
 .admin-topbar {
     height: 80px;
-    background: linear-gradient(90deg, #174f86);
+    background: linear-gradient(190deg, #13a1c8 ,#007bff);
     color: #fff;
     display: flex;
     align-items: center;
@@ -66,7 +66,7 @@ body {
 ======================= */
 .admin-sidebar {
     width: 250px;
-    background: linear-gradient(185deg, #233140);
+    background: linear-gradient(190deg,#13a1c8, #007bff,#007bff,#00ff9d);
     padding-top: 18px;
 }
 
@@ -75,8 +75,9 @@ body {
 }
 
 .admin-sidebar li {
-    padding: 10px 18px;
-    font-size: 23px;
+    padding: 10px 10px;
+    font-size: 28px;
+    font-weight: bold;
     color: #ffffff;
     cursor: pointer;
     border-radius: 8px;
@@ -84,11 +85,10 @@ body {
     transition: background .25s ease, transform .2s;
 }
 
-.admin-sidebar li:hover,
 .admin-sidebar li.active {
-    background: #194576;
+    background: #6b07d5;
     color: #fff;
-    transform: translateX(8px);
+    transform: translateX(1px);
 }
 
 /* =======================
@@ -106,7 +106,7 @@ body {
 .submenu {
 
     list-style: none;
-    background: #194576;
+    background:linear-gradient(330deg,#25baff,#007bff,#00ff9d);
     margin-left: 7px;
     border-radius: 20px;
     max-height: 1px;
@@ -122,15 +122,16 @@ body {
     display: block;
     padding: 6px 30px;
     font-size: 17px;
-    color: #cfd8dc;
+    color: #ffffff;
     text-decoration: none;
     text-align: center;
 }
 
 .submenu li a:hover {
-    background: #14cea9;
-    color: #9d00ff;
-    border-radius: 6px;
+    background:#738fff;
+    color: #ffffff;
+    padding: 10px 30px;
+    border-radius: 9px;
 }
 
 /* =======================
@@ -151,12 +152,103 @@ body {
 }
 
 /* =======================
-   DASHBOARD GRID
+   GRID LAYOUT
 ======================= */
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 28px;
+}
+
+/* =======================
+   BASE CARD COLOR STYLE
+======================= */
+
+.stat-card {
+    color: #fff;
+}
+
+/* Individual Colors */
+
+.stat-card.blue {
+    background: #2980b9;
+}
+
+.stat-card.green {
+    background: #27ae60;
+}
+
+.stat-card.red {
+    background: #c0392b;
+}
+
+.stat-card.orange {
+    background: #d35400;
+}
+
+.stat-card.purple {
+    background: #8e44ad;
+}
+
+.stat-card.teal {
+    background: #16a085;
+}
+.stat-card.pink {
+    background: #ff6dfd;
+}
+
+/* =======================
+   CARD CONTENT STYLING
+======================= */
+
+.stat-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.stat-icon {
+    font-size: 32px;
+}
+
+.stat-info h4 {
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.stat-info span {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+/* =======================
+   PARTICLE EFFECT
+======================= */
+
+.particle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: rgba(255,255,255,0.6);
+    border-radius: 50%;
+    animation: float 8s infinite ease-in-out;
+}
+
+.particle:nth-child(1) { top: 20%; left: 15%; animation-delay: 0s; }
+.particle:nth-child(2) { top: 60%; left: 60%; animation-delay: 1s; }
+.particle:nth-child(3) { top: 80%; left: 40%; animation-delay: 2s; }
+.particle:nth-child(4) { top: 70%; left: 95%; animation-delay: 3s; }
+.particle:nth-child(5) { top: 90%; left: 60%; animation-delay: 4s; }
+.particle:nth-child(6) { top: 10%; left: 40%; animation-delay: 5s; }
+
+
+
+
+@keyframes float {
+    0% { transform: translateY(0px); opacity: 0.7; }
+    50% { transform: translateY(-15px); opacity: 1; }
+    100% { transform: translateY(100px); opacity: 0.7; }
 }
 
 /* =======================
@@ -164,12 +256,10 @@ body {
 ======================= */
 .card {
     position: relative;
-    background: #ffffff;
     border-radius: 20px;
     padding: 20px;
-    min-height: 80px;
+    min-height: 90px;
     overflow: hidden;
-    box-shadow: 0 6px 18px rgb(96, 94, 94);
     transition: transform .35s ease, box-shadow .35s ease;
 }
 
@@ -185,7 +275,7 @@ body {
     position: absolute;
     width: 180px;
     height: 180px;
-    background: radial-gradient(circle, rgba(87, 188, 255, 0.82), transparent 70%);
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.82), transparent 70%);
     top: -70px;
     right: -65px;
     opacity: 0;
@@ -201,29 +291,52 @@ body {
    STAT CARD SPECIAL EFFECTS
 ======================= */
 
-/* Animated Border */
 .card.stat-card::before {
     content: "";
     position: absolute;
     inset: 0;
     border-radius: 20px;
-    padding: 3px;
+    padding: 4px;
     background: linear-gradient(100deg,
-            rgba(52, 152, 219, 0.8),
-            rgba(155, 89, 182, 0.8),
-            rgba(46, 204, 113, 0.8),
-            rgb(155, 89, 182, 0.8),
-            rgb(243, 156, 18));
+            rgba(167, 167, 167, 0.8),
+            rgba(0, 153, 255, 0.8),
+            rgba(255, 157, 0, 0.8),rgb(255, 255, 255),
+            rgba(209, 0, 251, 0.8));
     background-size: 300% 300%;
     animation: borderGlow 6s ease infinite;
     -webkit-mask:
-        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#ffffff 0 0) content-box,
         linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
     pointer-events: none;
 }
 
+
+/* Optional: Make links look better */
+.card a {
+    display: inline-block;
+    padding: 8px 14px;
+    border-radius: 8px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: opacity .3s ease;
+}
+
+.card a:hover {
+    opacity: 0.85;
+}
+
+/* =======================
+   BORDER ANIMATION KEYFRAME
+======================= */
+
+@keyframes borderGlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
 /* Border Animation */
 @keyframes borderGlow {
     0% {
@@ -260,13 +373,13 @@ body {
 
 /* Icon Animation */
 .stat-icon {
-    width: 80px;
+    width: 100px;
     height: 50px;
-    border-radius: 12px;
+    border-radius: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 40px;
+    font-size: 45px;
     color: #fff;
     animation: pulse 2s infinite;
 }
@@ -294,22 +407,22 @@ body {
 
 @keyframes iconSpin {
     50% {
-        transform: rotate(10deg) scale(1.15);
+        transform: rotate(15deg) scale(1.15);
     }
 }
 
 /* Text */
 .stat-info h4 {
-    padding: 10px;
-    font-size: 22px;
-    color: #747879;
-    font-weight: 700;
+    padding: 10px 0px;
+    font-size: 20px;
+    color: #ffffff;
+    font-weight: 800;
 }
 
 .stat-info span {
     padding-left: 120px;
-    color: #d00cf3;
-    font-size: 35px;
+    color: #2b0cf3;
+    font-size: 55px;
     font-weight: 600;
     display: inline-block;
 }
@@ -338,6 +451,10 @@ body {
 .teal .stat-icon {
     background: #1abc9c;
 }
+.pink .stat-icon {
+    background: #e44d8cc0;
+}
+
 
 /* =======================
    PAGE CONTAINER
@@ -417,7 +534,18 @@ form button {
 form button:hover {
     background: #2980b9;
 }
+/* contact  */
 
+.messages-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.message-actions {
+    margin-top: 10px;
+    text-align: right;
+}
 /* =======================
    ADMIN TABLE
 ======================= */
@@ -447,6 +575,7 @@ form button:hover {
     font-size: 14px;
     color: #19191a;
 }
+
 .admin-table tbody tr:nth-child(odd) {
     background: #f7fbff;
 }
@@ -462,6 +591,7 @@ form button:hover {
     font-size: 15px;
     font-weight: 600;
 }
+
 /* ===== Messages Container ===== */
 
 .messages-container {
@@ -535,7 +665,7 @@ form button:hover {
     .admin-layout {
         flex-direction: column;
     }
-    
+
     .message-card {
         padding: 15px;
     }
