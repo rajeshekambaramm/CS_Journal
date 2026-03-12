@@ -1,0 +1,76 @@
+Jenkins 
+
+1.java -version
+
+	sudo dnf install java-17-openjdk -y
+
+java -version
+
+2.sudo wget -O /etc/yum.repos.d/jenkins.repo \
+https://pkg.jenkins.io/redhat-stable/jenkins.repo
+
+
+3.sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
+
+4.sudo dnf install jenkins -y
+
+5.Start Jenkins:
+	sudo systemctl start jenkins
+Enable at boot:
+	sudo systemctl enable jenkins
+Check status:
+	sudo systemctl status jenkins
+
+
+6.Open browser inside VM:
+
+	http://localhost:8080
+
+ 
+Jenkins project that pulls code from GitHub
+
+
+
+1.git --version
+
+2.sudo dnf install git -y
+
+3.Open Jenkins in browser
+http://localhost:8080
+
+4.Go to:
+Dashboard → Manage Jenkins → Manage Plugins
+
+5.Git Plugin
+
+PART 3: Create New Project (Freestyle Project)
+1️⃣ Click New Item
+2️⃣ Enter project name
+Example:
+	MyGitProject
+Select:
+
+Freestyle Project
+
+PART 4: Connect GitHub Repository
+Inside project configuration:
+🔹 Step 1: Source Code Management
+• Select Git
+• In Repository URL paste your GitHub repo link
+Example:
+https://github.com/username/repository.git
+
+Step 2: Branch
+	Default branch usually:
+		*/main
+
+Execute shell
+
+Add simple command:
+echo "Build Started"
+ls
+This will show pulled files.
+Click Save
+
+
+Cloning the remote Git repository

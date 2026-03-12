@@ -1,0 +1,56 @@
+Install Ansible in Fedora & Configure Inventory
+
+1. 	sudo dnf install ansible -y
+
+2.	ansible --version
+
+3.	/etc/ansible/hosts
+	sudo nano /etc/ansible/hosts
+4.[local]
+localhost ansible_connection=local
+
+Save and exit.(ctrl+o ,enter ,Ctrl+x)
+
+5.	ansible all -m ping
+
+
+
+Ansible Ad-hoc Commands & Playbook on Fedora
+
+1.ansible all -m ping
+
+2.ansible all -m command -a "uptime"
+
+3.ansible all -m command -a "df -h"
+
+4.ansible all -m dnf -a "name=git state=present use_backend=dnf5" --become --askbecome-pass
+
+5.ansible all -m dnf -a "name=httpd state=present use_backend=dnf5" --become --askbecome-pass
+ansible all -m service -a "name=httpd state=started" --become --ask-become-pass
+
+6.nano start_httpd.yml
+
+7.
+
+---
+- name: Start Apache Service
+ hosts: local
+ become: yes
+ tasks:
+ - name: Start Apache
+   service:
+     name: httpd
+     state: started
+
+ CTRL + O, Enter, CTRL + X
+
+8.ansible-playbook start_httpd.yml --ask-become-pass
+
+9.systemctl status httpd
+
+Or open a browser in the VM:
+http://localhost
+
+
+ 10.Optional – Stop Apache
+ansible all -m service -a "name=httpd state=stopped" --become --ask-become-pass
